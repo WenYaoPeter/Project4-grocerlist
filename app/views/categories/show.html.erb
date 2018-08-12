@@ -1,0 +1,10 @@
+<h3><%= @categories.name%></h3>
+
+   <%= button_to 'Edit list', edit_category_item_path(@categories, @itemsToGet), method: :get %>
+
+<br></br>
+
+<% @itemsToGet.each do |item|%>
+   <li style="list-style: none"><%= item.name%></li>  
+<% end%>
+

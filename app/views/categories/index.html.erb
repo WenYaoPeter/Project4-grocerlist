@@ -1,0 +1,9 @@
+<h2>Index from categories</h2>
+
+<% @categories.each do |category| %>
+   <li key={category.id} style="list-style: none"><strong><%= category.name %></strong></li>
+   
+   <%= link_to 'Items To Get', category_path(category), method: :get %>
+   <%= button_to 'Delete Item', category_path(category), method: :delete %>
+   <br><br/>
+<% end %>

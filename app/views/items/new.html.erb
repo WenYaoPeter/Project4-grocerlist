@@ -1,0 +1,14 @@
+<%= form_with scope: :item, url: category_items_path, method: :post, local: true do |form| %>
+   <h3><%= @category.name%></h3>
+   <p>
+      <%= form.label :name, "List of Item: "%>
+      <%= form.text_field :name %><br>
+   </p>
+
+   <% @categoryItems.map do |item| %>
+      <li><%= item.name%></li>
+   <% end %>
+
+<%= form.submit 'Save List', class:"btn btn-primary btn-sm" %>
+ <%= link_to 'Show Grocerlist', categories_url, class: "btn btn-sm", method: :get %>
+<% end %>
