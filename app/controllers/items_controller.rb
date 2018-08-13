@@ -11,8 +11,8 @@ class ItemsController < ApplicationController
 
    
    def new
-      @category = Category.find(params[:category_id])
-      @categoryItems = @category.items
+      @categories = Category.find(params[:category_id])
+      @categoryItems = @categories.items
    end
 
    
@@ -26,8 +26,8 @@ class ItemsController < ApplicationController
 
    
    def edit
-      @category = Category.find(params[:category_id])
-      @categoryItems = @category.items
+      @categories = Category.find(params[:category_id])
+      @categoryItems = @categories.items
       @items = Item.find(params[:id])
    end
 

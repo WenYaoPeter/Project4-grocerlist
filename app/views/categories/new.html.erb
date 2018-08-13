@@ -1,10 +1,14 @@
+<h4>new.html.erb  categories</h4>
+
 <%= form_with scope: :category, url: categories_path(@categories), method: :post, local: true do |form| %>
    <p>
-   <%= form.label :name, "Name of Item: "%>
-   <%= form.text_field :name %><br>
+      <%= form.label :name, "My New Item: "%>
+      <%= form.text_field :name %><br>
    </p>
-   <%= form.submit 'Save List', class:"btn btn-primary btn-sm" %>
-   <%= link_to 'Show Grocerlist', categories_url, class:"btn btn-sm btn-info", method: :get%>
+   <p>
+      <%= form.submit 'Save List', class:"btn btn-primary btn-sm" %>
+      <%= link_to 'Show Grocerlist', categories_url, class:"btn btn-sm btn-info", method: :get%>
+   </p>
 <% end %>
 
 

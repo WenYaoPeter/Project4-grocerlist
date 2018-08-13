@@ -1,10 +1,15 @@
 <h3><%= @categories.name%></h3>
 
+<% if !@itemsToGet %>
+
+   <%= button_to 'Edit list', edit_category_item_path(@categories), method: :get, class:"btn btn-sm btn-info" %>
+
+<% else %>
    <%= button_to 'Edit list', edit_category_item_path(@categories, @itemsToGet), method: :get, class:"btn btn-sm btn-info" %>
 
-<br></br>
+   <br></br>
 
-<% @itemsToGet.each do |item|%>
-   <li style="list-style: none"><%= item.name%></li>  
-<% end%>
-
+   <% @itemsToGet.each do |item|%>
+      <li style="list-style: none"><%= item.name%></li>  
+   <% end%>
+<% end %>

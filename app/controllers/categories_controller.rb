@@ -6,15 +6,29 @@ class CategoriesController < ApplicationController
 
    
    def show
-      @categories = Category.find(params[:id])
-      @itemsToGet = @categories.items.map do |item|
-                        item
-                     end
+      # @categories = Category.find(params[:id])
+      # @itemsToGet = @categories.items.map do |item|
+      #                   item
+      #                end
+
+      if params[:search]
+         id = Category.where(name: params[:search])[0].id
+         @categories = Category.find(id)
+         @itemsToGet = @categories.items.map do |item|
+            item
+         end
+      else
+         @categories = Category.find(params[:id])
+         @itemsToGet = @categories.items.map do |item|
+                           item
+                        end
+         end
    end
 
    
    def new
       @categories = Category.all
+      @items = Item.all
    end
 
    
@@ -26,8 +40,8 @@ class CategoriesController < ApplicationController
 
    
    def edit
-      @category = Category.find(params[:id])
-      @itemsToGet = @category.items.map do |item|
+      @categories = Category.find(params[:id])
+      @itemsToGet = @categories.items.map do |item|
          item
       end
    end

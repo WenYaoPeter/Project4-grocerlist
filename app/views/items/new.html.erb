@@ -1,5 +1,5 @@
 <%= form_with scope: :item, url: category_items_path, method: :post, local: true do |form| %>
-   <h3><%= @category.name%></h3>
+   <h3><%= @categories.name%></h3>
    <p>
       <%= form.label :name, "List of Item: "%>
       <%= form.text_field :name %><br>

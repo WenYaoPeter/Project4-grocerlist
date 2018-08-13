@@ -1,8 +1,8 @@
-<h1>Edit category's  Cat name</h1>
+<h1>Edit ies's  Cat name</h1>
 
-<h2>Item name</h2>
+<h2><%= @categories.name%></h2>
 
-<%= form_with scope: :category, url: category_path(@category), method: :patch, local: true do |form| %>
+<%= form_with scope: :category, url: category_path(@categories), method: :patch, local: true do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %><br>
