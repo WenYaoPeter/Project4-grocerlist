@@ -43,6 +43,7 @@ class CategoriesController < ApplicationController
    def destroy
       catTodelete = Category.find(params[:id])
       catTodelete.destroy
+      redirect_to categories_path
    end
 
    private

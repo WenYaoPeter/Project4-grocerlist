@@ -1,33 +1,27 @@
 <h1>Edit category's list of items</h1>
 
-<h3><%= @category.name%></h3>
+<h3><%= link_to @category.name, category_path(@category), method: :get%></h3>
 
-<% @categoryItems.each do |item| %>
+  <% @categoryItems.each do |item| %>
 
-  <%= form_with scope: :item, url: category_item_path(@category, item), method: :patch, local: true do |form| %>
-    <p>
-      <%= form.label :name, item.name %><br>
-      <%= form.text_field :name %><br>
-    </p>
+    <%= form_with scope: :item, url: category_item_path(@category, item), method: :patch, local: true do |form| %>
+      <p>
+        <%= form.label :name, item.name %><br>
+        <%= form.text_field :name %>
+        <%= form.submit 'Rename Item', class: "btn btn-sm btn-info"%>
+        <%= link_to 'Delete', category_item_path(@category, item), method: :delete, class: "btn btn-sm btn-outline-danger", data: { confirm: 'Delete this item?' } %>  
+      </p>  
 
-    <p>
-      <%= form.submit 'Rename Item'%>
-    </p>  
-   <% end %>
+    <% end %>
 
-   <%= button_to 'Delete', category_item_path(@category, item), method: :delete%>
-
-<% end %>
+  <% end %>
 
 <%= form_with scope: :item, url: category_items_path, method: :post, local: true do |form| %>
 
   <p>
     <%= form.label :name, 'New Item'%>
     <%= form.text_field :name %>
-  </p>
-
-  <p>
-    <%= form.submit 'Add On'%>
+    <%= form.submit 'Add On', class:"btn btn-sm btn-success"%>
   </p>
 
 <% end %>
