@@ -1,20 +1,21 @@
+<%# <%if @paramsid%>
+<%# if i have parameters of id i should get this %>
 <h1>Edit category's list of items</h1>
-
 <h3><%= link_to @categories.name, category_path(@categories), method: :get%></h3>
 
-  <% @categoryItems.each do |item| %>
+<% @categoryItems.each do |item| %>
 
-    <%= form_with scope: :item, url: category_item_path(@categories, item), method: :patch, local: true do |form| %>
-      <p>
-        <%= form.label :name, item.name %><br>
-        <%= form.text_field :name %>
-        <%= form.submit 'Rename Item', class: "btn btn-sm btn-info"%>
-        <%= link_to 'Delete', category_item_path(@categories, item), method: :delete, class: "btn btn-sm btn-outline-danger", data: { confirm: 'Delete this item?' } %>  
-      </p>  
-
-    <% end %>
+  <%= form_with scope: :item, url: category_item_path(@categories, item), method: :patch, local: true do |form| %>
+    <p>
+      <%= form.label :name, item.name %><br>
+      <%= form.text_field :name %>
+      <%= form.submit 'Rename Item', class: "btn btn-sm btn-info"%>
+      <%= link_to 'Delete', category_item_path(@categories, item), method: :delete, class: "btn btn-sm btn-outline-danger", data: { confirm: 'Delete this item?' } %>  
+    </p>  
 
   <% end %>
+
+<% end %>
 
 <%= form_with scope: :item, url: category_items_path, method: :post, local: true do |form| %>
 

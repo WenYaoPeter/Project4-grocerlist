@@ -2,6 +2,12 @@ class CategoriesController < ApplicationController
 
    def index
       @categories = Category.all
+      @eachCat = @categories.map do |category|
+                     category
+                  end
+      @eachCatItem = @eachCat.map do |eaCat|
+                        eaCat.items
+                     end
    end
 
    
@@ -15,14 +21,14 @@ class CategoriesController < ApplicationController
          id = Category.where(name: params[:search])[0].id
          @categories = Category.find(id)
          @itemsToGet = @categories.items.map do |item|
-            item
-         end
+                           item
+                        end
       else
          @categories = Category.find(params[:id])
          @itemsToGet = @categories.items.map do |item|
                            item
                         end
-         end
+      end
    end
 
    
@@ -44,6 +50,7 @@ class CategoriesController < ApplicationController
       @itemsToGet = @categories.items.map do |item|
          item
       end
+
    end
 
    

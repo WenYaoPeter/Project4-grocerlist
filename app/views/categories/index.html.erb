@@ -4,7 +4,12 @@
    <li key={category.id} style="list-style: none; display:inline;"><strong><%= category.name %></strong></li> 
    <%= link_to 'Rename', edit_category_path(category), method: :get, class: "btn btn-sm btn-outline-success" %>
    <%= link_to 'Delete Item', category_path(category), method: :delete, data: { confirm: 'Delete this table?' } , class: "btn btn-sm btn-outline-danger" %>
-   
-   <%= link_to 'Items To Get', category_path(category), method: :get %>
+   <%= category.items.length%>
+   <% if category.items.length > 0 %>
+      <%= link_to 'Items To Get', category_path(category), method: :get %>
+   <% else %>
+      <%= link_to 'Add on', category_path(category), method: :get %>
+      <%# <%= link_to 'Add on', edit_category_item_path(category, @eachCatItem), method: :get %>
+      <% end %>
    <br><br/>
 <% end %>

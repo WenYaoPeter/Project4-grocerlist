@@ -6,7 +6,7 @@
    </p>
 
    <% @categoryItems.map do |item| %>
-      <li><%= item.name%></li>
+      <li style="list-style: none"><%= item.name%></li>
    <% end %>
 
 <%= form.submit 'Save List', class:"btn btn-primary btn-sm" %>

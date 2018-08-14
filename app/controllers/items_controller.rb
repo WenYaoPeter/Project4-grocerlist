@@ -21,15 +21,24 @@ class ItemsController < ApplicationController
       itemToGet.save
       currentCat = Category.find(params[:category_id])
       currentCat.items << itemToGet
+      # if length > 0
       redirect_to new_category_item_path
+
+      # else
+      #    redirect_to same page
+
+
+
    end
 
    
    def edit
+      @items = Item.find(params[:id])
       @categories = Category.find(params[:category_id])
       @categoryItems = @categories.items
-      @items = Item.find(params[:id])
+
    end
+   
 
 
    def update
