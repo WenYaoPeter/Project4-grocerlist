@@ -1,3 +1,5 @@
+<h1>new.html.erb items views</h1>
+
 <%= form_with scope: :item, url: category_items_path, method: :post, local: true do |form| %>
    <h3><%= @categories.name%></h3>
    <p>
@@ -6,7 +8,15 @@
    </p>
 
    <% @categoryItems.map do |item| %>
-      <li style="list-style: none"><%= item.name%></li>
+      <div class="input-group">
+         <li class="w-25 p-3;" style="list-style:none; display:inline;"><%= item.name%>:</li>      
+         <span class="text">$</span> <input style="width:50px" type="text" class="form-control;" aria-label="Dollar amount (with dot and two decimal places)" data-toggle="tooltip" data-placement="top" title="Enter budget">
+         <select name="unit" id="unit" data-toggle="tooltip" data-placement="top" title="Select Quantity">
+            <option value="">Qty</option>
+            <option value="perG">per g</option>
+            <option value="perKg">per kg</option>
+         </select>
+      </div>
    <% end %>
 
 <%= form.submit 'Save List', class:"btn btn-primary btn-sm" %>

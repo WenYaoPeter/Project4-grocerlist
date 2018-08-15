@@ -18,11 +18,15 @@ class CategoriesController < ApplicationController
       #                end
 
       if params[:search]
-         id = Category.where(name: params[:search])[0].id
-         @categories = Category.find(id)
-         @itemsToGet = @categories.items.map do |item|
-                           item
-                        end
+         if Category.where(name: params[:search]).length === 0
+            redirect_to '/'
+         else
+            id = Category.where(name: params[:search])[0].id
+            @categories = Category.find(id)
+            @itemsToGet = @categories.items.map do |item|
+                              item
+                           end
+         end
       else
          @categories = Category.find(params[:id])
          @itemsToGet = @categories.items.map do |item|
@@ -35,6 +39,10 @@ class CategoriesController < ApplicationController
    def new
       @categories = Category.all
       @items = Item.all
+
+      if @toPrompt === true 
+         @prompt = 'Enter existing list / create a new list'
+      end
    end
 
    
