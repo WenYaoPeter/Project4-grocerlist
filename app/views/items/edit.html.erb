@@ -1,7 +1,3 @@
-<%# <%if @paramsid%>
-<%# if i have parameters of id i should get this %>
-<h1>Edit category's list of items</h1>
-
 <h3><%= link_to @categories.name, category_path(@categories), method: :get%></h3>
 
 <% @categoryItems.each do |item| %>

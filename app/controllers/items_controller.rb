@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
       allCurrentItems = currentCat.items.map do |item|
          item
       end
-      redirect_to edit_category_item_path(currentCat, allCurrentItems)
+      redirect_to new_category_item_path(currentCat)
    end
    
    def edit

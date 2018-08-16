@@ -1,5 +1,3 @@
-<h2>Index from categories</h2>
-
 <% @categories.each do |category| %>
    <li key={category.id} style="list-style: none; display:inline;"><strong><%= category.name %></strong></li> 
    <%= link_to 'Rename', edit_category_path(category), method: :get, class: "btn btn-sm btn-outline-success" %>
