@@ -18,22 +18,34 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <%= link_to 'Grocerlist', root_url, method: :get, class:"navbar-brand", "data-toggle"=>"tooltip", "data-placement"=>"top", "title"=>"Homepage" %>
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+          
+            <%= link_to 'Grocerlist', categories_url, method: :get, class:"navbar-brand", "data-toggle"=>"tooltip", "data-placement"=>"bottom", "title"=>"List of Groceries" %>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <%# <a class="nav-link" href="#">Home</a> %>
+                <%= link_to 'Home', root_path, method: :get, class:"nav-link", "data-toggle"=>"tooltip", "data-placement"=>"bottom", "title"=>"List of Groceries"%>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+
               <%= form_tag category_path(@categories), :method => "get", id: "search-form" do %>
               <%# <form action="/categories/:id" method=GET class="form-inline my-2 my-lg-0"> %>
                 <%= text_field_tag :search, params[:search], placeholder: "Search" %>
                 <%# <input name="userSearch" class="form-control mr-sm-2" type="search" placeholder="Search"> %>
-                <%= submit_tag "Search", :name => nil, class:"btn btn-outline-success my-2 my-sm-0" %>
+                <%= submit_tag "Search", :name => nil, class:"btn btn-outline-info my-2 my-sm-0" %>
                 <%# <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> %>
               <%# </form> %>
               <% end %>
             </div>
+
           </nav>
         </div>
       </div>
