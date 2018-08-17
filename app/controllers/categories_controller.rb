@@ -3,11 +3,11 @@ class CategoriesController < ApplicationController
    def index
       @categories = Category.all
       @eachCat = @categories.map do |category|
-                     category
-                  end
+         category
+      end
       @eachCatItem = @eachCat.map do |eaCat|
-                        eaCat.items
-                     end
+         eaCat.items
+      end
    end
 
    

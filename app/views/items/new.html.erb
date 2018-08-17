@@ -1,3 +1,4 @@
+<div class="row justify-content-center">
 <%= form_with scope: :item, url: category_items_path, method: :post, local: true do |form| %>
    <h3><%= @categories.name%></h3>
 
@@ -7,18 +8,17 @@
    <%= form.submit 'Save List', class:"btn btn-primary btn-sm" %>
    <%= link_to 'Show Grocerlist', categories_url, class: "btn btn-sm", method: :get %>
 <% end %>
-
+</div>
 <% @categoryItems.map do |item| %>
-   <div class="input-group">
+   <div class="input-group row justify-content-center">
       <li class="w-25 p-3;" style="list-style:none; display:inline;"><%= item.name%>:</li>      
       <span class="text">$</span> <input style="width:50px" type="text" class="form-control;" aria-label="Dollar amount (with dot and two decimal places)" data-toggle="tooltip" data-placement="top" title="Enter budget">
       <select name="unit" id="unit" data-toggle="tooltip" data-placement="top" title="Select Quantity">
          <option value="">Qty</option>
-         <option value="perG">per g</option>
-         <option value="perKg">per kg</option>
+         <option value="perG">perG</option>
+         <option value="perKg">perKg</option>
       </select>
+      <%= button_to 'Tabulate', type="button", class: "btn btn-link" %>
       <%# show $ x kg %>
    </div>
 <% end %>
-
-<p>budget</p>
