@@ -1,3 +1,4 @@
+<div class="col-md-auto text-center">
 <h3><%= link_to @categories.name, category_path(@categories), method: :get%></h3>
 
 <% @categoryItems.each do |item| %>
@@ -24,3 +25,4 @@
 <% end %>
 
 <%= link_to 'Edit Budget', new_category_item_path(@categories), method: :get %>
+</div>

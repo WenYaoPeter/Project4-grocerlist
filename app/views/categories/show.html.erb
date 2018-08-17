@@ -1,13 +1,15 @@
-<h3><%= @categories.name%></h3>
+<div class="col-md-auto text-center">
+   <h3><%= @categories.name%></h3>
 
-<%if @itemsToGet.length > 0%>
-   <%= @itemsToGet.length%>
-   <%= button_to 'Edit list', edit_category_item_path(@categories, @itemsToGet), method: :get, class:"btn btn-sm btn-info" %>
-   <br></br>
-   <% @itemsToGet.each do |item|%>
-      <li style="list-style: none"><%= item.name %></li>
+   <%if @itemsToGet.length > 0%>
+      <%= @itemsToGet.length%>
+      <%= button_to 'Edit list', edit_category_item_path(@categories, @itemsToGet), method: :get, class:"btn btn-sm btn-info" %>
+      <br></br>
+      <% @itemsToGet.each do |item|%>
+         <li style="list-style: none"><%= item.name %></li>
+      <% end %>
+
+   <% else %>
+      <%controller.redirect_to new_category_item_path(@categories) %>
    <% end %>
-
-<% else %>
-   <%controller.redirect_to new_category_item_path(@categories) %>
-<% end %>
+</div>
